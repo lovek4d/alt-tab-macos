@@ -153,7 +153,6 @@ These do IPC and are allowed to block: nothing the user is mid-gesture for waits
 - `SystemPermissions` — `AXIsProcessTrustedWithOptions`, `CGPreflightScreenCaptureAccess`,
   `SCShareableContent` (tccd). All on `permissionsCheckOnTimerQueue`. What the show path reads
   (`ScreenRecordingPermission.status`) is a cached static.
-- `Keychain` — `SecItem*` (securityd). License code only; unreachable during a summon.
 - `ExceptionsTab`, `MoveToApplicationsFolder` — `NSWorkspace.icon(forFile:)`, `urlForApplication`,
   `runningApplications`, `Bundle(url:)` (LaunchServices + disk). Settings UI.
 - `NSWorkspace.shared.open` for the support / checkout / account URLs (LaunchServices). Menu actions.

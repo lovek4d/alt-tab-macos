@@ -25,7 +25,7 @@ struct UsageStats {
     private static var dirty = Set<String>()
     private static var flushScheduled = false
     #if DEBUG
-    /// Set by `QaSurfaces`, so the counts the About window and the Pro prompts quote are the same on every run.
+    /// Set by `QaSurfaces`, so the counts the About window quotes are the same on every run.
     /// Read in place of what is stored; recording still goes to the real arrays.
     static var qaPinned: [String: [Int]]?
     #endif
@@ -67,7 +67,7 @@ struct UsageStats {
     static var triggerCount: Int { count("triggers", since: Date.distantPast) }
 
     static var usedProFeaturesSessionCount: Int {
-        // One hop for all five keys: this runs on the main thread from the Pro windows and the About tab.
+        // One hop for all five keys: this runs on the main thread from the About tab.
         let keys = ["triggers", "triggersAppIcons", "triggersTitles", "triggersExtraShortcuts", "searches"]
         let t = writeQueue.sync { keys.map { loadOnQueue($0) } }
         return UsageStatsTestable.proFeatureSessionCount(
